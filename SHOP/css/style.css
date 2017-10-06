@@ -1,0 +1,17 @@
+.productForm{
+	width: 200px;
+	margin-left: 20px;
+	float:left;
+}
+form .ng-pristine{
+	background-color: lightpink;
+}
+form .ng-dirty{
+	background-color: lightgreen;
+}
+input {
+	color: black;
+}
+select,option {
+	color: black;
+}

@@ -1,0 +1,13 @@
+<table class="table table-bordered table-striped">
+	<input type="button" value="add category" ng-click="addOrUpdateCategory()">
+	<tr>
+		<td><b>name</b></td>
+		<td><b></b></td>
+		<td><b></b></td>
+	</tr>
+	<tr ng-repeat="category in categorys">
+		<td>{{category.categoryname}}</td>
+		<td><input type="button" value="delete" ng-click="deleteCategory(category)"></td>
+		<td><input type="button" value="update" ng-click="addOrUpdateCategory(category)"></td>
+	</tr>
+</table>

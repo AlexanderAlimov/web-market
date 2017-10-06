@@ -1,0 +1,47 @@
+<div ng-controller="paginationCtrl" ng-init="loadproduct()">
+	<table class="table table-bordered table-striped">
+		<input type="button" value="add products" ng-click="updateOrAdd()">
+		<tr>
+			<td><b>name</b></td>
+			<td><b>model</b></td>
+			<td><b>price</b></td>
+			<td><b>count</b></td>
+			<td><b>category</b></td>
+			<td><b></b></td>
+		</tr>
+		<tr ng-repeat="product in items">
+			<td>{{product.name}}</td>
+			<td>{{product.model}}</td>
+			<td>{{product.price}}</td>
+			<td>{{product.count}}</td>
+			<td>{{product.category}}</td>
+			<td><input type="button" value="update" ng-click="updateOrAdd(product)"></td>
+			<td><input type="button" value="delete" ng-click="delete(product)"></td>
+			
+		</tr>
+	</table>
+	<div class="row text-center">
+		<ul class="pagination" ng-if="objPage.pages.length>1">
+			<li><a href="#" ng-click="setPage(1)">First</a></li>
+			<li>
+				<a class="btn" ng-class="{disabled:objPage.currentPage==1}" href="#" ng-click="setPage(objPage.currentPage-1)">previous
+				</a>
+			</li>
+			<li ng-repeat="page in objPage.pages" ng-class="{active:objPage.currentPage==page}">
+				<a href="#" ng-click="setPage(page)">
+					{{page}}
+				</a>
+			</li>
+			<li >
+				<a class="btn" ng-class="{disabled:objPage.currentPage==objPage.totalPage}" href="#" ng-click="setPage(objPage.currentPage+1)">
+					next
+				</a>
+			</li>
+			<li>
+				<a href="#" ng-click="setPage(objPage.totalPage)">
+					last
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

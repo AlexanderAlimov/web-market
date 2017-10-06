@@ -1,0 +1,50 @@
+<!Doctype html>
+<html ng-app="mainApp">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/font-awesome.css">
+<link rel="stylesheet" href="../css/style.css">
+<title>angular project</title>
+	<script src="angular.js"></script>
+	<script src="modules/products.js"></script>
+	<script src="modules/cart.js"></script>
+	<script src="modules/category.js"></script>
+	<script src="modules/pagination.js"></script>
+	<script src="modules/login_control.js"></script>
+	<script src="modules/main.js"></script>
+</head>
+<body ng-controller="mainCtrl" ng-init="showAdminProducts()">
+	<div class="container mycontainer" ng-controller="prdCtrl">
+		<div class="panel panel-primary" ng-controller="cartCtrl">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-xs-12 col-sm-10">
+						{{current.heading}}
+					</div>
+					<div class="col-xs-12 col-sm-2">
+
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="panel-body" >
+					<div class="row">
+						<div class="col-xs-12 col-sm-2">
+							<ul class="nav nav-pills nav-stacked">
+							  <li role="presentation" ng-class="{active:current.view=='viewsadmin/adminProduct.html'}"><a href="#" ng-click="showAdminProducts()">Products</a></li>
+							  <li role="presentation" ng-class="{active:current.view=='viewsadmin/adminCategory.html'}"><a href="#" ng-click="showAdminCategory()">Category</a></li>
+							  <li role="presentation" ng-class="{active:current.view=='viewsadmin/adminOrders.html'}"><a href="#" ng-click="showAdminOrder()">Orders</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-10" ng-include="current.view" ng-controller="ctgCtrl">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

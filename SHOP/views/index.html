@@ -1,0 +1,58 @@
+<!Doctype html>
+<html ng-app="mainApp">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/font-awesome.css">
+<link rel="stylesheet" href="../css/style.css">
+<title>angular project</title>
+	<script src="angular.js"></script>
+	<script src="modules/products.js"></script>
+	<script src="modules/cart.js"></script>
+	<script src="modules/category.js"></script>
+	<script src="modules/pagination.js"></script>
+	<script src="modules/login_control.js"></script>
+	<script src="modules/main.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+	
+	<div class="container mycontainer" ng-controller="prdCtrl">
+		<div  ng-controller="cartCtrl">
+			<div class="panel panel-primary" ng-controller="ctgCtrl">
+				<div class="panel-heading" ng-controller="loginCtrl">
+					<div class="row">
+						<input type="text" id="username">
+						<input type="text" id="password">
+						<a href="/loginnew" class="btn btn-success btn-sm">login</a>
+						<a href="/logout" class="btn btn-success btn-sm">logout</a>
+						<a href="/auth/facebook" class="btn btn-info btn-sm">facebook</a>
+						<div class="col-xs-12 col-sm-10">
+							{{user.username}}
+							<img src="{{user.photos}}">
+						</div>
+						<select ng-change="loadproduct({category:selectCategory})" ng-model="selectCategory">
+							<option ng-repeat="item in categorys">{{item.categoryname}}</option>
+						</select>
+						<div class="col-xs-12 col-sm-2">
+							<button class="btn btn-info" ng-click="showCart()">
+								<i class="fa fa-shopping-cart fa-lg" ></i>
+								Bascket
+								<span class="badge" ng-show="cart.length>0">
+									{{cart.length}}
+								</span>
+							</button>
+
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="panel-body" ng-include="current.view">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

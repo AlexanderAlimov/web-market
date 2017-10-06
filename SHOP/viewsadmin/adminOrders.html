@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-md-8 col-sm-offset-1">
+			<table class="table table-bordered table-striped" ng-repeat="order in orders">
+				<tr>
+					<!-- <td><h4>confirm</h4></td>
+					<td><h4>reject</h4></td>
+					<td><h4>order_id</h4></td>
+					<td><h4>order</h4></td> -->
+				</tr>
+				<tr>
+					<td>Order number:{{$index+1}}</td>
+					<td><input type="button" value="confirm" ng-click="confirmOrder(order)"></td>
+					<td><input type="button" value="reject" ng-click=""></td>
+				</tr>
+				<tr ng-repeat="cart in order.cart">
+					<td><p>name : {{cart.name}}</p></td>
+				    <td><p>model : {{cart.model}}</p></td>
+				    <td><p>count : {{cart.newcount}}</p></td>
+				 </tr>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<div ng-controller="paginationCtrl">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="product in items">
+			<div class="thumbnail">
+				<img src={{product.path}} alt="Photo doest't exist">
+				<div class="caption">
+					<h4>{{product.name}} {{product.model}}</h4>
+					<p>{{product.category}}</p>
+					<h4>{{product.price}} грн</h4>
+					<button class="btn btn-success" ng-click="addProductCart(product)">
+						<i class="fa fa-shopping-cart fa-lg"></i>
+						Buy
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row text-center">
+		<ul class="pagination" ng-if="objPage.pages.length>1">
+			<li><a href="#" ng-click="setPage(1)">First</a></li>
+			<li>
+				<a class="btn" ng-class="{disabled:objPage.currentPage==1}" href="#" ng-click="setPage(objPage.currentPage-1)">previous
+				</a>
+			</li>
+			<li ng-repeat="page in objPage.pages" ng-class="{active:objPage.currentPage==page}">
+				<a href="#" ng-click="setPage(page)">
+					{{page}}
+				</a>
+			</li>
+			<li >
+				<a class="btn" ng-class="{disabled:objPage.currentPage==objPage.totalPage}" href="#" ng-click="setPage(objPage.currentPage+1)">
+					next
+				</a>
+			</li>
+			<li>
+				<a href="#" ng-click="setPage(objPage.totalPage)">
+					last
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

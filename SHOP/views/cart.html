@@ -1,0 +1,27 @@
+<input type="button" value="back" ng-click="showProducts()">
+<button class="btn btn-danger" ng-click="makeOrder(cart)">To order</button>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th>name of product</th>
+		<th>count</th>
+		<th>price</th>
+		<th>Delete</th>
+	</tr>
+	<tr ng-repeat="product in cart">
+		<td>{{product.name}} {{product.model}}</td>
+		<td>
+		<button ng-click="plusCount(product)">+</button>
+		{{product.newcount}}
+		<button ng-click="minusProduct(product)">-</button>
+		</td>
+		<td>{{product.newprice}}</td>
+		<td>
+			<button class="btn btn-danger" ng-click="deleteProduct(product)">Delete</button>
+		</td>
+	</tr>
+</table>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h4>Total value:{{sumTotal()}}</h4>
+	</div>
+</div>
