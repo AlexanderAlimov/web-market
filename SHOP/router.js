@@ -135,6 +135,8 @@ router.post('/makeorder',function(req,res){
 	})
 })
 ////// підтвердження замовлення
+
+
 router.post('/confirm',function(req,res){
 	console.log("confirm order:");
 	console.log(req.body);

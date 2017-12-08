@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 /// підключаємо кукі парсер і створюємо app  
 var cookieParser=require('cookie-parser')();
+
 app.use(cookieParser);
 
 /// підключаємо кукі сешион і створюємо app  
@@ -208,5 +209,5 @@ var router = require('./router.js');
 app.use('/',router);
 
 ////порт для прослуховування сервера
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 80);
 console.log('Server is running...')
